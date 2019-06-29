@@ -1,0 +1,12 @@
+main: yy.gourlitburo.yeyajoinmessage.Main
+name: YeyaJoinMessage
+version: 0.0.0
+author: Zack Guard
+description: A simple plugin that displays a configured message to a player when they join.
+commands:
+  yeyajoinmessage:
+    aliases: [yjm]
+    description: Manage YeyaJoinMessage.
+    usage: /yjm [set <message>|show|reload]
+    permission: bukkit.op
+    permission-message: "`bukkit.op' permission required to manage YeyaJoinMessage."
