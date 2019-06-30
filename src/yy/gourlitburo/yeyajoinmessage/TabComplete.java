@@ -9,7 +9,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;
 import org.bukkit.util.StringUtil;
 
-public class YJMTabCompleter implements TabCompleter {
+public class TabComplete implements TabCompleter {
   private static final List<String> ACTIONS = Arrays.asList("set", "show", "reload");
   
   @Override

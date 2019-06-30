@@ -9,6 +9,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.Server;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
+import org.bukkit.command.PluginCommand;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -30,7 +31,10 @@ public class Main extends JavaPlugin {
   @Override
   public void onEnable() {
     manager.registerEvents(playerJoinEventHandler, this);
-    getCommand("yjm").setTabCompleter(new YJMTabCompleter());
+
+    PluginCommand command = getCommand("yjm");
+    command.setTabCompleter(new TabComplete());
+    
     logger.info("YeyaJoinMessage ready.");
   }
 
