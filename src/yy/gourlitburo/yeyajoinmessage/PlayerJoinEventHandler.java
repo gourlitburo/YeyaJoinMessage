@@ -1,5 +1,6 @@
 package yy.gourlitburo.yeyajoinmessage;
 
+import java.util.Map;
 import java.util.logging.Logger;
 
 import org.bukkit.Bukkit;
@@ -10,6 +11,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 
 public class PlayerJoinEventHandler implements Listener {
+
   Main plugin;
   Logger logger;
   Server server = Bukkit.getServer();
@@ -22,7 +24,11 @@ public class PlayerJoinEventHandler implements Listener {
   @EventHandler
   public void onPlayerJoin(PlayerJoinEvent event) {
     Player player = event.getPlayer();
-    plugin.sendColoredMessage(player, plugin.getMsgJoin());
-    logger.info(String.format("Sent join message to %s.", player.getPlayerListName()));
+    String playerName = player.getName();
+    player.sendMessage(plugin.formatter.format(plugin.getMsgJoin(), Map.of(
+      "PLAYER", playerName
+    )));
+    logger.info(String.format("Sent join message to %s.", playerName));
   }
+  
 }
