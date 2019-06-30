@@ -6,10 +6,8 @@ import java.util.regex.Pattern;
 
 public class StringFormatter {
 
-  private static final String PATTERN_INTERP = "#\\{[A-Z]+\\}";
-  private static final Pattern patternInterp = Pattern.compile(PATTERN_INTERP);
-  private static final String PATTERN_COLOR = "&([0-9a-flmnor])";
-  private static final Pattern patternColor = Pattern.compile(PATTERN_COLOR);
+  private static final Pattern patternInterp = Pattern.compile("#\\{[A-Z]+\\}");
+  private static final Pattern patternColor = Pattern.compile("&([0-9a-flmnor])");
 
   public String colorize(String message) {
     return patternColor.matcher(message).replaceAll("\u00A7$1");
