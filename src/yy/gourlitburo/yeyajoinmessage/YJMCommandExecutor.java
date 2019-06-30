@@ -26,7 +26,7 @@ class YJMCommandExecutor implements CommandExecutor {
       for (int i = 1; i < args.length; ++i) {
         newMsgJoinA.add(args[i]);
       }
-      String newMsgJoin = String.join(" ", newMsgJoinA);
+      String newMsgJoin = String.join(" ", newMsgJoinA).replaceAll("\\\\n", "\n");
       plugin.getConfig().set(plugin.KEY_MSG_JOIN, newMsgJoin);
       plugin.saveConfig();
       sender.sendMessage(plugin.formatter.colorize(String.format("New join message is '%s&r'.", plugin.getMsgJoin())));
