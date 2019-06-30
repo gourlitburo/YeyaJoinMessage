@@ -7,6 +7,6 @@ commands:
   yeyajoinmessage:
     aliases: [yjm]
     description: Manage YeyaJoinMessage.
-    usage: /yjm [set <message>|show|reload]
+    usage: /yjm [set <message>|show|show-raw|reload]
     permission: bukkit.op
     permission-message: "`bukkit.op' permission required to manage YeyaJoinMessage."

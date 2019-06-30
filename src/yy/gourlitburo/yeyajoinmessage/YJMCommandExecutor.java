@@ -31,10 +31,14 @@ public class YJMCommandExecutor implements CommandExecutor {
       plugin.saveConfig();
       sender.sendMessage(plugin.formatter.colorize(String.format("New join message is '%s&r'.", plugin.getMsgJoin())));
       return true;
-    } else if (action.equalsIgnoreCase("show")) {
-      sender.sendMessage(plugin.formatter.format(plugin.getMsgJoin(), Map.of(
-        "PLAYER", sender.getName()
-      )));
+    } else if (action.equalsIgnoreCase("show") || action.equalsIgnoreCase("show-raw")) {
+      String message = plugin.getMsgJoin();
+      if (action.equalsIgnoreCase("show")) {
+        message = plugin.formatter.format(message, Map.of(
+          "PLAYER", sender.getName()
+        ));
+      }
+      sender.sendMessage(message);
       return true;
     } else if (action.equalsIgnoreCase("reload")) {
       plugin.reloadConfig();
