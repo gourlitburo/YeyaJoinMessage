@@ -8,7 +8,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 
-public class YJMCommandExecutor implements CommandExecutor {
+class YJMCommandExecutor implements CommandExecutor {
 
   private Main plugin;
 

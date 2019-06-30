@@ -4,7 +4,7 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class StringFormatter {
+class StringFormatter {
 
   private static final Pattern patternInterp = Pattern.compile("#\\{[A-Z]+\\}");
   private static final Pattern patternColor = Pattern.compile("&([0-9a-flmnor])");
