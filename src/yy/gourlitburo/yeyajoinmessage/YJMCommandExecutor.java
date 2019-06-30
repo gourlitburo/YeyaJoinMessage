@@ -10,7 +10,7 @@ import org.bukkit.command.CommandSender;
 
 public class YJMCommandExecutor implements CommandExecutor {
 
-  Main plugin;
+  private Main plugin;
 
   public YJMCommandExecutor(Main instance) {
     plugin = instance;
