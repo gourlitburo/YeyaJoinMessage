@@ -4,7 +4,7 @@ A simple Spigot plugin that displays a configured message to players when they j
 
 ## Building
 
-Built against Spigot API 1.14.3.
+Developed against Spigot API 1.14.3.
 
 Have `ant` installed and run it in the repository directory. Outputs jar file to `target/`.
 
