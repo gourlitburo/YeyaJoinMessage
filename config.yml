@@ -1,1 +1,7 @@
-msg_join: "Welcome to the server, #{PLAYER}."
+msg:
+  join:
+    enable: true
+    text: "Welcome to the world, #{PLAYER}"
+  join_broadcast:
+    enable: true
+    text: "#{PLAYER} is here!"

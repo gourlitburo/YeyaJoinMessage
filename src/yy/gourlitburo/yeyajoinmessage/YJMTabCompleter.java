@@ -10,7 +10,7 @@ import org.bukkit.command.TabCompleter;
 import org.bukkit.util.StringUtil;
 
 class YJMTabCompleter implements TabCompleter {
-  private static final List<String> ACTIONS = Arrays.asList("set", "show", "show-raw", "reload");
+  private static final List<String> ACTIONS = Arrays.asList("set", "enable", "disable", "show", "show-raw", "reload");
   
   @Override
   public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {

@@ -15,10 +15,40 @@ public class Main extends JavaPlugin {
   PluginManager manager = Bukkit.getPluginManager();
   StringFormatter formatter = new StringFormatter();
 
-  final String KEY_MSG_JOIN = "msg_join";
+  private final String KEY_MSGS = "msg";
+  private final String KEY_ENABLE = "enable";
+  private final String KEY_TEXT = "text";
+  final String KEY_MSG_JOIN = "join";
 
-  String getMsgJoin() {
-    return getConfig().getString(KEY_MSG_JOIN);
+  final String M_INVALID_KEY = "Invalid message key.";
+
+  private String makeMsgPath(String key) {
+    return KEY_MSGS + "." + key;
+  }
+
+  private void setConfig(String path, Object value) {
+    getConfig().set(path, value);
+    saveConfig();
+  };
+
+  boolean isValidMsgKey(String key) {
+    return getConfig().contains(makeMsgPath(key));
+  }
+
+  void setMsgEnable(String key, Boolean enable) {
+    setConfig(makeMsgPath(key) + "." + KEY_ENABLE, enable);
+  };
+
+  void setMsgText(String key, String text) {
+    setConfig(makeMsgPath(key) + "." + KEY_TEXT, text);
+  };
+
+  boolean getMsgEnable(String key) {
+    return getConfig().getBoolean(makeMsgPath(key) + "." + KEY_ENABLE);
+  }
+
+  String getMsgText(String key) {
+    return getConfig().getString(makeMsgPath(key) + "." + KEY_TEXT);
   }
 
   @Override
@@ -28,6 +58,8 @@ public class Main extends JavaPlugin {
     PluginCommand command = getCommand("yjm");
     command.setExecutor(new YJMCommandExecutor(this));
     command.setTabCompleter(new YJMTabCompleter());
+
+    saveDefaultConfig(); // does nothing if user's config already exists
 
     logger.info("YeyaJoinMessage ready.");
   }
