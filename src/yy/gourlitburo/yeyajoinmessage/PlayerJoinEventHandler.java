@@ -17,13 +17,18 @@ class PlayerJoinEventHandler implements Listener {
   
   @EventHandler
   public void onPlayerJoin(PlayerJoinEvent event) {
+    Player player = event.getPlayer();
+    String playerName = player.getName();
+    Map<String, String> map = Map.of(
+      "PLAYER", playerName
+    );
     if (plugin.getMsgEnable(plugin.KEY_MSG_JOIN)) {
-      Player player = event.getPlayer();
-      String playerName = player.getName();
-      player.sendMessage(plugin.formatter.format(plugin.getMsgText(plugin.KEY_MSG_JOIN), Map.of(
-        "PLAYER", playerName
-      )));
+      player.sendMessage(plugin.formatter.format(plugin.getMsgText(plugin.KEY_MSG_JOIN), map));
       plugin.logger.info(String.format("Sent join message to %s.", playerName));
+    }
+    if (plugin.getMsgEnable(plugin.KEY_MSG_JOIN_BROADCAST)) {
+      String formatted = plugin.formatter.format(plugin.getMsgText(plugin.KEY_MSG_JOIN_BROADCAST), map);
+      event.setJoinMessage(formatted);
     }
   }
   

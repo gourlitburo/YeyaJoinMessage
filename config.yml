@@ -3,5 +3,8 @@ msg:
     enable: true
     text: "Welcome to the world, #{PLAYER}"
   join_broadcast:
-    enable: true
-    text: "#{PLAYER} is here!"
+    enable: false
+    text: "&e#{PLAYER} is here!"
+  quit_broadcast:
+    enable: false
+    text: "&e#{PLAYER} left."
