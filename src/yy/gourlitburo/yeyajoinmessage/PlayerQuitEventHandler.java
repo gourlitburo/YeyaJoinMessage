@@ -21,6 +21,7 @@ class PlayerQuitEventHandler implements Listener {
         "PLAYER", event.getPlayer().getName()
       ));
       event.setQuitMessage(formatted);
+      plugin.logger.info("Broadcasted quit message.");
     }
   }
 

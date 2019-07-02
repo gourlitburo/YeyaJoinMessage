@@ -29,6 +29,7 @@ class PlayerJoinEventHandler implements Listener {
     if (plugin.getMsgEnable(plugin.KEY_MSG_JOIN_BROADCAST)) {
       String formatted = plugin.formatter.format(plugin.getMsgText(plugin.KEY_MSG_JOIN_BROADCAST), map);
       event.setJoinMessage(formatted);
+      plugin.logger.info("Broadcasted join message.");
     }
   }
   
