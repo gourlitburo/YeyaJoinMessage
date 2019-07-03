@@ -1,6 +1,8 @@
 serv
 build_and_copy.bat
 
+.vscode
+
 *.class
 
 *.log
