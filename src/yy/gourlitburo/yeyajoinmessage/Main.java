@@ -60,7 +60,7 @@ public class Main extends JavaPlugin {
 
     PluginCommand command = getCommand("yjm");
     command.setExecutor(new YJMCommandExecutor(this));
-    command.setTabCompleter(new YJMTabCompleter());
+    command.setTabCompleter(new YJMTabCompleter(this));
 
     saveDefaultConfig(); // does nothing if user's config already exists
 
