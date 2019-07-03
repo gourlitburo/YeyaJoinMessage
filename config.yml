@@ -1,7 +1,7 @@
 msg:
   join:
     enable: true
-    text: "Welcome to the world, #{PLAYER}"
+    text: "&eWelcome to the world, #{PLAYER}."
   join_broadcast:
     enable: false
     text: "&e#{PLAYER} is here!"
