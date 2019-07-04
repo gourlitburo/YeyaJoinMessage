@@ -1,6 +1,7 @@
 main: yy.gourlitburo.yeyajoinmessage.Main
 name: YeyaJoinMessage
 version: 0.0.0
+api-version: 1.14
 author: Zack Guard
 description: A simple plugin that displays a configured message to players when they join.
 commands:
