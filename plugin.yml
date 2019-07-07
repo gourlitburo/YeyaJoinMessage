@@ -3,11 +3,13 @@ name: YeyaJoinMessage
 version: 0.0.0
 api-version: 1.14
 author: Zack Guard
-description: A simple plugin that displays a configured message to players when they join.
+description: Simple Spigot plugin for customizing player join and quit messages.
 commands:
   yeyajoinmessage:
     aliases: [yjm]
     description: Manage YeyaJoinMessage.
     usage: "Usage: /yjm ( set <key> <msg> | ( enable | disable | show | show-raw ) <key> | reload )"
-    permission: bukkit.op
-    permission-message: "`bukkit.op' permission required to manage YeyaJoinMessage."
+    permission: yeyajoinmessage.manage
+permissions:
+  yeyajoinmessage.manage:
+    default: op
