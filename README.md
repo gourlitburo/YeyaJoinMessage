@@ -1,6 +1,6 @@
 # YeyaJoinMessage
 
-A simple Spigot plugin that displays a configured message to players when they join.
+A simple Spigot plugin for customization of join and quit messages.
 
 ## Building
 

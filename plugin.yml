@@ -3,7 +3,7 @@ name: YeyaJoinMessage
 version: 0.0.0
 api-version: 1.14
 author: Zack Guard
-description: Simple Spigot plugin for customizing player join and quit messages.
+description: A simple Spigot plugin for customization of join and quit messages.
 commands:
   yeyajoinmessage:
     aliases: [yjm]
