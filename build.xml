@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="YeyaJoinMessage" default="makejar" basedir=".">
+<project name="YeyaJoinMessage" default="jar" basedir=".">
 
     <path id="classpath">
         <fileset dir="lib">
-            <include name="**/*.jar" />
+            <include name="**/*.jar"/>
         </fileset>
     </path>
 
@@ -12,18 +12,20 @@
     </target>
 
     <target name="compile">
+        <mkdir dir="bin"/>
         <javac includeantruntime="false" destdir="bin">
             <src path="src"/>
-            <classpath refid="classpath" />
+            <classpath refid="classpath"/>
         </javac>
     </target>
 
-    <target name="makejar" depends="clean,compile">
-        <mkdir dir="target"></mkdir>
+    <target name="jar" depends="clean,compile">
+        <mkdir dir="target"/>
         <jar destfile="target/${ant.project.name}.jar">
-            <fileset dir="bin"></fileset>
-            <fileset file="plugin.yml"></fileset>
-            <fileset file="config.yml"></fileset>
+            <fileset dir="bin"/>
+            <fileset file="plugin.yml"/>
+            <fileset file="config.yml"/>
+            <zipgroupfileset dir="lib" includes="StringFormatter.jar"/>
         </jar>
     </target>
 

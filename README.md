@@ -4,9 +4,13 @@ A simple Spigot plugin for customization of join and quit messages.
 
 ## Building
 
-Developed against Spigot API 1.14.3.
+0. Have a JDK<sup>*</sup> and Ant installed
+1. Put [Spigot API](https://www.spigotmc.org/wiki/buildtools/) 1.14(.3) and [StringFormatter](https://github.com/gourlitburo/StringFormatter) jars in `lib` directory
+2. Run `ant`
 
-Have `ant` installed and run it in the repository directory. Outputs jar file to `target/`.
+Output jar will be in `target` directory.
+
+<sup>* Developed on Java 12. Lower versions might work too.</sup>
 
 ## License
 
