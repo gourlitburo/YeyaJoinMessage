@@ -49,8 +49,11 @@ class YJMCommandExecutor implements CommandExecutor {
       } else if (action.equalsIgnoreCase("show") || action.equalsIgnoreCase("show-raw")) {
         String message = plugin.getMsgText(msgKey);
         if (action.equalsIgnoreCase("show")) {
+          String senderName = sender.getName();
           message = plugin.formatter.format(message, Map.of(
-            "PLAYER", sender.getName()
+            "PLAYER", senderName,
+            "NAME", senderName,
+            "DISPLAYNAME", plugin.getDisplayName(sender)
           ));
         }
         sender.sendMessage(message);

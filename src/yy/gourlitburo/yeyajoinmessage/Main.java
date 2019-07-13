@@ -3,7 +3,9 @@ package yy.gourlitburo.yeyajoinmessage;
 import java.util.logging.Logger;
 
 import org.bukkit.Bukkit;
+import org.bukkit.command.CommandSender;
 import org.bukkit.command.PluginCommand;
+import org.bukkit.entity.Player;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -49,6 +51,10 @@ public class Main extends JavaPlugin {
 
   String getMsgText(String key) {
     return getConfig().getString(makeMsgPath(key) + "." + KEY_TEXT);
+  }
+
+  String getDisplayName(CommandSender sender) {
+    return sender instanceof Player ? ((Player) sender).getDisplayName() : sender.getName();
   }
 
   @Override
