@@ -20,7 +20,6 @@ class PlayerJoinEventHandler implements Listener {
     Player player = event.getPlayer();
     String playerName = player.getName();
     Map<String, String> map = Map.of(
-      "PLAYER", playerName,
       "NAME", playerName,
       "DISPLAYNAME", player.getDisplayName()
     );

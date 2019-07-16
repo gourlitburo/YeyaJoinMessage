@@ -22,7 +22,6 @@ class PlayerChangedWorldEventHandler implements Listener {
     Environment fromEnvironment = event.getFrom().getEnvironment();
     Environment environment = player.getWorld().getEnvironment();
     Map<String, String> values = Map.of(
-      "PLAYER", player.getName(),
       "NAME", player.getName(),
       "DISPLAYNAME", player.getDisplayName()
     );
