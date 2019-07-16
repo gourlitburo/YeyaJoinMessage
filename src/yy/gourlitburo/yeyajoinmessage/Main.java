@@ -3,6 +3,7 @@ package yy.gourlitburo.yeyajoinmessage;
 import java.util.logging.Logger;
 
 import org.bukkit.Bukkit;
+import org.bukkit.Server;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.PluginCommand;
 import org.bukkit.entity.Player;
@@ -14,15 +15,21 @@ import yy.gourlitburo.stringformatter.StringFormatter;
 public class Main extends JavaPlugin {
 
   Logger logger = getLogger();
+  Server server = getServer();
   PluginManager manager = Bukkit.getPluginManager();
   StringFormatter formatter = new StringFormatter();
 
   private final String KEY_MSGS = "msg";
   private final String KEY_ENABLE = "enable";
   private final String KEY_TEXT = "text";
+  
   final String KEY_MSG_JOIN = "join";
   final String KEY_MSG_JOIN_BROADCAST = "join_broadcast";
   final String KEY_MSG_QUIT_BROADCAST = "quit_broadcast";
+  final String KEY_MSG_ENTER_NETHER_BROADCAST = "enter_nether_broadcast";
+  final String KEY_MSG_LEAVE_NETHER_BROADCAST = "leave_nether_broadcast";
+  final String KEY_MSG_ENTER_END_BROADCAST = "enter_end_broadcast";
+  final String KEY_MSG_LEAVE_END_BROADCAST = "leave_end_broadcast";
 
   final String M_INVALID_KEY = "Invalid message key.";
 
@@ -59,10 +66,17 @@ public class Main extends JavaPlugin {
     return sender instanceof Player ? ((Player) sender).getDisplayName() : sender.getName();
   }
 
+  void broadcast(String message) {
+    for (Player player : server.getOnlinePlayers()) {
+      player.sendMessage(message);
+    }
+  }
+
   @Override
   public void onEnable() {
     manager.registerEvents(new PlayerJoinEventHandler(this), this);
     manager.registerEvents(new PlayerQuitEventHandler(this), this);
+    manager.registerEvents(new PlayerChangedWorldEventHandler(this), this);
 
     PluginCommand command = getCommand("yjm");
     command.setExecutor(new YJMCommandExecutor(this));

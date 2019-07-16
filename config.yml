@@ -8,3 +8,15 @@ msg:
   quit_broadcast:
     enable: false
     text: "&e#{DISPLAYNAME} left."
+  enter_nether_broadcast:
+    enable: false
+    text: "&e#{DISPLAYNAME} entered the Nether."
+  leave_nether_broadcast:
+    enable: false
+    text: "&e#{DISPLAYNAME} left the Nether."
+  enter_end_broadcast:
+    enable: false
+    text: "&e#{DISPLAYNAME} entered the End."
+  leave_end_broadcast:
+    enable: false
+    text: "&e#{DISPLAYNAME} left the End."
