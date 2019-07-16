@@ -1,10 +1,10 @@
 msg:
   join:
     enable: true
-    text: "&eWelcome to the world, #{PLAYER}."
+    text: "&eWelcome to the world, #{DISPLAYNAME}."
   join_broadcast:
     enable: false
-    text: "&e#{PLAYER} is here!"
+    text: "&e#{DISPLAYNAME} is here!"
   quit_broadcast:
     enable: false
-    text: "&e#{PLAYER} left."
+    text: "&e#{DISPLAYNAME} left."
