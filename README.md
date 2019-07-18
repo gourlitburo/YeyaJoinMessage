@@ -2,6 +2,46 @@
 
 A simple Spigot plugin for customization of join and quit messages.
 
+## Features
+
+* Join message to player
+* Join and quit broadcasts
+* Enter/leave Nether/End broadcasts
+
+## Configuration
+
+### Format
+
+```yaml
+# file: config.yml
+msg:
+  <message key>:
+    enable: [true | false]
+    text: <format string>
+```
+
+Available message keys:
+
+* `join`
+* `join_broadcast`
+* `quit_broadcast`
+* `enter_nether_broadcast`
+* `leave_nether_broadcast`
+* `enter_end_broadcast`
+* `leave_end_broadcast`
+
+### Parameter interpolation
+
+Syntax: `#{PARAMETER_NAME}`
+
+Available parameters:
+* `NAME`
+* `DISPLAYNAME`
+
+### Example
+
+See [default config.yml](https://github.com/gourlitburo/YeyaJoinMessage/blob/master/config.yml).
+
 ## Building
 
 0. Have a JDK<sup>*</sup> and Ant installed
