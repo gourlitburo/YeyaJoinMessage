@@ -39,7 +39,7 @@ class YJMCommandExecutor implements CommandExecutor {
         }
         String newMsg = String.join(" ", newMsgA).replaceAll("\\\\n", "\n");
         plugin.setMsgText(msgKey, newMsg);
-        sender.sendMessage(plugin.formatter.colorize(String.format("New join message is '%s&r'.", plugin.getMsgText(msgKey))));
+        sender.sendMessage(plugin.formatter.colorize(String.format("Message '%s' set to '%s&r'.", msgKey, plugin.getMsgText(msgKey))));
       } else if (action.equalsIgnoreCase("enable")) {
         plugin.setMsgEnable(msgKey, true);
         sender.sendMessage("Message '" + msgKey + "' is now enabled.");
