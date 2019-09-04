@@ -1,10 +1,14 @@
 package yy.gourlitburo.yeyajoinmessage;
 
+import java.util.Map;
 import java.util.logging.Logger;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Server;
+import org.bukkit.World;
+import org.bukkit.command.BlockCommandSender;
 import org.bukkit.command.CommandSender;
+import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.command.PluginCommand;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.PluginManager;
@@ -66,10 +70,54 @@ public class Main extends JavaPlugin {
     return sender instanceof Player ? ((Player) sender).getDisplayName() : sender.getName();
   }
 
+  World getWorld(CommandSender sender) {
+    if (sender instanceof Player) {
+      return ((Player) sender).getWorld();
+    } else if (sender instanceof BlockCommandSender) {
+      return ((BlockCommandSender) sender).getBlock().getWorld();
+    } else if (sender instanceof ConsoleCommandSender) {
+      return server.getWorlds().get(0);
+    }
+    return null;
+  }
+
   void broadcast(String message) {
     for (Player player : server.getOnlinePlayers()) {
       player.sendMessage(message);
     }
+  }
+
+  private String padLeft(String str, int n, char c) {
+    int l = str.length();
+    if (l >= n) return str;
+    StringBuilder builder = new StringBuilder(str);
+    for (int i = 0; i < n - l; ++i) {
+      builder.insert(0, c);
+    }
+    return builder.toString();
+  }
+
+  private String padLeft(int num, int n) {
+    return padLeft(Integer.toString(num), n, '0');
+  }
+
+  private String formatTime(long time) {
+    float hours = time / 1000f; // relative time is analogous to hours * 1000
+    int h = (int) hours;
+    int m = (int) (60 * (hours % 1f));
+    return String.format("%s:%s", padLeft(h, 2), padLeft(m, 2));
+  }
+
+  Map<String, String> getParameterMap(CommandSender player) {
+    World world = getWorld(player);
+    String timeStr = world == null ? "??:??" : formatTime(world.getTime());
+    int playerCount = world == null ? 0 : world.getPlayers().size();
+    return Map.of(
+      "NAME", player.getName(),
+      "DISPLAYNAME", getDisplayName(player),
+      "TIME", timeStr,
+      "PLAYERCOUNT", Integer.toString(playerCount)
+    );
   }
 
   @Override

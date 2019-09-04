@@ -19,10 +19,7 @@ class PlayerJoinEventHandler implements Listener {
   public void onPlayerJoin(PlayerJoinEvent event) {
     Player player = event.getPlayer();
     String playerName = player.getName();
-    Map<String, String> map = Map.of(
-      "NAME", playerName,
-      "DISPLAYNAME", player.getDisplayName()
-    );
+    Map<String, String> map = plugin.getParameterMap(player);
     if (plugin.getMsgEnable(plugin.KEY_MSG_JOIN)) {
       player.sendMessage(plugin.formatter.format(plugin.getMsgText(plugin.KEY_MSG_JOIN), map));
       plugin.logger.info(String.format("Sent join message to %s.", playerName));

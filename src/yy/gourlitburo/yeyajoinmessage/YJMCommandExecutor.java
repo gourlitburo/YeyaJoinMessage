@@ -2,7 +2,6 @@ package yy.gourlitburo.yeyajoinmessage;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -49,10 +48,7 @@ class YJMCommandExecutor implements CommandExecutor {
       } else if (action.equalsIgnoreCase("show") || action.equalsIgnoreCase("show-raw")) {
         String message = plugin.getMsgText(msgKey);
         if (action.equalsIgnoreCase("show")) {
-          message = plugin.formatter.format(message, Map.of(
-            "NAME", sender.getName(),
-            "DISPLAYNAME", plugin.getDisplayName(sender)
-          ));
+          message = plugin.formatter.format(message, plugin.getParameterMap(sender));
         }
         sender.sendMessage(message);
       }
