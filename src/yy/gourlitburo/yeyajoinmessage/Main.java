@@ -105,7 +105,7 @@ public class Main extends JavaPlugin {
   Map<String, String> getParameterMap(CommandSender player) {
     World world = getWorld(player);
     String timeStr = world == null ? "??:??" : formatTime(world.getTime());
-    int playerCount = world == null ? 0 : world.getPlayers().size();
+    int playerCount = server.getOnlinePlayers().size();
     return Map.of(
       "NAME", player.getName(),
       "DISPLAYNAME", getDisplayName(player),
