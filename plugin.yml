@@ -1,6 +1,6 @@
 main: yy.gourlitburo.yeyajoinmessage.Main
 name: YeyaJoinMessage
-version: 0.1.1
+version: 0.2.0
 api-version: 1.14
 author: Zack Guard
 description: A simple Spigot plugin for customization of join and quit messages.
