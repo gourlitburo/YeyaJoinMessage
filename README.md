@@ -37,6 +37,8 @@ Syntax: `#{PARAMETER_NAME}`
 Available parameters:
 * `NAME`
 * `DISPLAYNAME`
+* `TIME`
+* `PLAYERCOUNT`
 
 ### Example
 
