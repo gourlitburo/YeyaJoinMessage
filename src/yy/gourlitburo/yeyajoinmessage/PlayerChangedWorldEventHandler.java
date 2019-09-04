@@ -38,7 +38,7 @@ class PlayerChangedWorldEventHandler implements Listener {
       broadcastString = plugin.formatter.format(plugin.getMsgText(plugin.KEY_MSG_LEAVE_END_BROADCAST), values);
     }
     if (broadcastString != null) {
-      plugin.broadcast(broadcastString);
+      plugin.server.broadcastMessage(broadcastString);
       plugin.server.getConsoleSender().sendMessage(broadcastString);
       plugin.logger.info("Broadcasted world change message.");
     }

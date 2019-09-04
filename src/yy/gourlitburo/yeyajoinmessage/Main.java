@@ -81,12 +81,6 @@ public class Main extends JavaPlugin {
     return null;
   }
 
-  void broadcast(String message) {
-    for (Player player : server.getOnlinePlayers()) {
-      player.sendMessage(message);
-    }
-  }
-
   private String padLeft(String str, int n, char c) {
     int l = str.length();
     if (l >= n) return str;
