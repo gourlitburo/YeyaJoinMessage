@@ -8,6 +8,8 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerChangedWorldEvent;
 
+import yy.gourlitburo.stringformatter.StringFormatter;
+
 class PlayerChangedWorldEventHandler implements Listener {
 
   private Main plugin;
@@ -29,13 +31,13 @@ class PlayerChangedWorldEventHandler implements Listener {
     // TODO: dry this up
     String broadcastString = null;
     if (environment == Environment.NETHER && plugin.getMsgEnable(plugin.KEY_MSG_ENTER_NETHER_BROADCAST)) {
-      broadcastString = plugin.formatter.format(plugin.getMsgText(plugin.KEY_MSG_ENTER_NETHER_BROADCAST), values);
+      broadcastString = StringFormatter.format(plugin.getMsgText(plugin.KEY_MSG_ENTER_NETHER_BROADCAST), values);
     } else if (fromEnvironment == Environment.NETHER && plugin.getMsgEnable(plugin.KEY_MSG_LEAVE_NETHER_BROADCAST)) {
-      broadcastString = plugin.formatter.format(plugin.getMsgText(plugin.KEY_MSG_LEAVE_NETHER_BROADCAST), values);
+      broadcastString = StringFormatter.format(plugin.getMsgText(plugin.KEY_MSG_LEAVE_NETHER_BROADCAST), values);
     } else if (environment == Environment.THE_END && plugin.getMsgEnable(plugin.KEY_MSG_ENTER_END_BROADCAST)) {
-      broadcastString = plugin.formatter.format(plugin.getMsgText(plugin.KEY_MSG_ENTER_END_BROADCAST), values);
+      broadcastString = StringFormatter.format(plugin.getMsgText(plugin.KEY_MSG_ENTER_END_BROADCAST), values);
     } else if (fromEnvironment == Environment.THE_END && plugin.getMsgEnable(plugin.KEY_MSG_LEAVE_END_BROADCAST)) {
-      broadcastString = plugin.formatter.format(plugin.getMsgText(plugin.KEY_MSG_LEAVE_END_BROADCAST), values);
+      broadcastString = StringFormatter.format(plugin.getMsgText(plugin.KEY_MSG_LEAVE_END_BROADCAST), values);
     }
     if (broadcastString != null) {
       plugin.server.broadcastMessage(broadcastString);

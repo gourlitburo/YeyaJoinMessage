@@ -7,6 +7,8 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 
+import yy.gourlitburo.stringformatter.StringFormatter;
+
 class PlayerJoinEventHandler implements Listener {
 
   private Main plugin;
@@ -21,11 +23,11 @@ class PlayerJoinEventHandler implements Listener {
     String playerName = player.getName();
     Map<String, String> map = plugin.getParameterMap(player);
     if (plugin.getMsgEnable(plugin.KEY_MSG_JOIN)) {
-      player.sendMessage(plugin.formatter.format(plugin.getMsgText(plugin.KEY_MSG_JOIN), map));
+      player.sendMessage(StringFormatter.format(plugin.getMsgText(plugin.KEY_MSG_JOIN), map));
       plugin.logger.info(String.format("Sent join message to %s.", playerName));
     }
     if (plugin.getMsgEnable(plugin.KEY_MSG_JOIN_BROADCAST)) {
-      String formatted = plugin.formatter.format(plugin.getMsgText(plugin.KEY_MSG_JOIN_BROADCAST), map);
+      String formatted = StringFormatter.format(plugin.getMsgText(plugin.KEY_MSG_JOIN_BROADCAST), map);
       event.setJoinMessage(formatted);
       plugin.logger.info("Broadcasted join message.");
     }

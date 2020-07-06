@@ -14,14 +14,11 @@ import org.bukkit.entity.Player;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import yy.gourlitburo.stringformatter.StringFormatter;
-
 public class Main extends JavaPlugin {
 
   Logger logger = getLogger();
   Server server = getServer();
   PluginManager manager = Bukkit.getPluginManager();
-  StringFormatter formatter = new StringFormatter();
 
   private final String KEY_MSGS = "msg";
   private final String KEY_ENABLE = "enable";

@@ -4,6 +4,8 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerQuitEvent;
 
+import yy.gourlitburo.stringformatter.StringFormatter;
+
 class PlayerQuitEventHandler implements Listener {
 
   private Main plugin;
@@ -15,7 +17,7 @@ class PlayerQuitEventHandler implements Listener {
   @EventHandler
   public void onPlayerQuit(PlayerQuitEvent event) {
     if (plugin.getMsgEnable(plugin.KEY_MSG_JOIN_BROADCAST)) {
-      String formatted = plugin.formatter.format(plugin.getMsgText(plugin.KEY_MSG_QUIT_BROADCAST), plugin.getParameterMap(event.getPlayer()));
+      String formatted = StringFormatter.format(plugin.getMsgText(plugin.KEY_MSG_QUIT_BROADCAST), plugin.getParameterMap(event.getPlayer()));
       event.setQuitMessage(formatted);
       plugin.logger.info("Broadcasted quit message.");
     }

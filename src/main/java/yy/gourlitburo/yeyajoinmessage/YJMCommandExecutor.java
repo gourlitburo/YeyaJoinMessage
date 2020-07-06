@@ -7,6 +7,8 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 
+import yy.gourlitburo.stringformatter.StringFormatter;
+
 class YJMCommandExecutor implements CommandExecutor {
 
   private Main plugin;
@@ -38,7 +40,7 @@ class YJMCommandExecutor implements CommandExecutor {
         }
         String newMsg = String.join(" ", newMsgA).replaceAll("\\\\n", "\n");
         plugin.setMsgText(msgKey, newMsg);
-        sender.sendMessage(plugin.formatter.colorize(String.format("Message '%s' set to '%s&r'.", msgKey, plugin.getMsgText(msgKey))));
+        sender.sendMessage(StringFormatter.colorize(String.format("Message '%s' set to '%s&r'.", msgKey, plugin.getMsgText(msgKey))));
       } else if (action.equalsIgnoreCase("enable")) {
         plugin.setMsgEnable(msgKey, true);
         sender.sendMessage("Message '" + msgKey + "' is now enabled.");
@@ -48,7 +50,7 @@ class YJMCommandExecutor implements CommandExecutor {
       } else if (action.equalsIgnoreCase("show") || action.equalsIgnoreCase("show-raw")) {
         String message = plugin.getMsgText(msgKey);
         if (action.equalsIgnoreCase("show")) {
-          message = plugin.formatter.format(message, plugin.getParameterMap(sender));
+          message = StringFormatter.format(message, plugin.getParameterMap(sender));
         }
         sender.sendMessage(message);
       }
