@@ -42,7 +42,7 @@ Available parameters:
 
 ### Example
 
-See [default config.yml](https://github.com/gourlitburo/YeyaJoinMessage/blob/master/config.yml).
+See [default config.yml](https://github.com/gourlitburo/YeyaJoinMessage/blob/master/src/main/resources/config.yml).
 
 ## License
 
