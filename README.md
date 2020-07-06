@@ -44,20 +44,10 @@ Available parameters:
 
 See [default config.yml](https://github.com/gourlitburo/YeyaJoinMessage/blob/master/config.yml).
 
-## Building
-
-0. Have a JDK<sup>*</sup> and Ant installed
-1. Put [Spigot API](https://www.spigotmc.org/wiki/buildtools/) 1.14(.3) and [StringFormatter](https://github.com/gourlitburo/StringFormatter) jars in `lib` directory
-2. Run `ant`
-
-Output jar will be in `target` directory.
-
-<sup>* Developed on Java 12. Lower versions might work too.</sup>
-
 ## License
 
 ```
-Copyright 2019 Zachary Guard
+Copyright 2020 Zachary Guard
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
